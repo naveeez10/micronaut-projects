@@ -6,4 +6,5 @@
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
     <include file="changelog/01-schema.xml" relativeToChangelogFile="true"/>
     <include file="bootcamp-2/products/products.yaml" relativeToChangelogFile="true"/>
+    <include file="bootcamp-2/orders/order.yml" relativeToChangelogFile="true"/>
 </databaseChangeLog>
