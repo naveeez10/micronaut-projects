@@ -4,6 +4,7 @@ import co.incubyte.exception.EntityNotFound;
 import de.huxhorn.sulky.ulid.ULID;
 import jakarta.inject.Singleton;
 
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Singleton
@@ -18,18 +19,24 @@ public class ProductService {
         return productRepository.findById(id).orElseThrow(EntityNotFound::new);
     }
 
-    public List<Product> getProducts()  {
-        return productRepository.findAll();
+    public List<ProductResponse> getProducts()  {
+        List<Product> products = productRepository.findAll();
+        return products.stream().map(product -> new ProductResponse(product.getId(), product.getName(),
+                product.getCreatedAt(),
+                product.getUpdatedAt())).toList();
     }
 
-    public Product addProduct(ProductRequest body) {
-        String id = new ULID().nextULID();
-        Product product = new Product(id, body.name());
-        return productRepository.save(product);
+    public ProductResponse addProduct(ProductRequest body) {
+        Product savedProduct = productRepository.save(new Product(new ULID().nextULID(), body.name()));
+        return new ProductResponse(savedProduct.getId(), savedProduct.getName(),
+                savedProduct.getCreatedAt(),
+                savedProduct.getUpdatedAt());
     }
 
-    public List<Product> getProductByName(String name) {
-        return productRepository.findByName(name);
+    public List<ProductResponse> getProductByName(String name) {
+        return productRepository.findByName(name).stream().map(product -> new ProductResponse(product.getId(), product.getName(),
+                product.getCreatedAt(),
+                product.getUpdatedAt())).toList();
     }
 }
 
