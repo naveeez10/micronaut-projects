@@ -36,6 +36,16 @@ public class Product {
     public Product() {
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public static Product fromId(String id) {
+        Product product = new Product();
+        product.setId(id);
+        return product;
+    }
+
     public Product(String id, String name) {
         this.id = id;
         this.name = name;
@@ -43,6 +53,8 @@ public class Product {
     public String getId() {
         return id;
     }
+
+
     public String getName() {
         return name;
     }

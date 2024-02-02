@@ -1,9 +1,7 @@
 package co.incubyte.order;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import co.incubyte.product.Product;
+import jakarta.persistence.*;
 import org.hibernate.annotations.UuidGenerator;
 
 @Entity
@@ -15,11 +13,26 @@ public class Order {
     private String id;
     private Integer quantity;
 
+
+    @ManyToOne
+    @JoinColumn(name = "product_id", nullable = false)
+    private Product product;
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
     public Order() {
     }
 
-    public Order(Integer quantity) {
+    public Order(Integer quantity, Product product) {
         this.quantity = quantity;
+        this.product = product;
+
     }
 
     public String getId() {

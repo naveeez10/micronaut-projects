@@ -1,4 +1,6 @@
 package co.incubyte.order;
 
-public record OrderResponse(String id, Integer quantity) {
+import co.incubyte.product.Product;
+
+public record OrderResponse(String id, Integer quantity, Product product) {
 }
