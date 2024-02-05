@@ -1,3 +1,3 @@
 package co.incubyte.order;
 
-public record OrderRequest(Integer quantity, String productId) {}
+public record OrderRequest(Integer quantity, String id) {}

@@ -1,10 +1,9 @@
 package co.incubyte.product;
 
-import co.incubyte.exception.EntityNotFound;
+import co.incubyte.exception.EntityNotFoundException;
 import de.huxhorn.sulky.ulid.ULID;
 import jakarta.inject.Singleton;
 
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Singleton
@@ -16,7 +15,7 @@ public class ProductService {
         this.productRepository = productRepository;
     }
     public Product getProductById(String id) {
-        return productRepository.findById(id).orElseThrow(EntityNotFound::new);
+        return productRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Product with id " + id + " not found"));
     }
 
     public List<ProductResponse> getProducts()  {

@@ -27,6 +27,16 @@ dependencies {
     runtimeOnly("org.mariadb.jdbc:mariadb-java-client")
     runtimeOnly("org.yaml:snakeyaml")
 
+    testImplementation("io.micronaut.test:micronaut-test-rest-assured")
+    testImplementation("org.assertj:assertj-core")
+    testImplementation("org.junit.jupiter:junit-jupiter-params")
+    testImplementation("org.mock-server:mockserver-client-java:5.15.0")
+    testImplementation("org.testcontainers:junit-jupiter")
+    testImplementation("org.testcontainers:mockserver")
+    testImplementation("org.testcontainers:testcontainers")
+    testImplementation("org.testcontainers:mariadb")
+
+    implementation("io.micronaut:micronaut-management")
 
     implementation 'de.huxhorn.sulky:de.huxhorn.sulky.ulid:8.3.0'
 }
@@ -36,8 +46,8 @@ application {
     mainClass.set("com.example.Application")
 }
 java {
-    sourceCompatibility = JavaVersion.toVersion("17")
-    targetCompatibility = JavaVersion.toVersion("17")
+    sourceCompatibility = JavaVersion.toVersion("21")
+    targetCompatibility = JavaVersion.toVersion("21")
 }
 
 
