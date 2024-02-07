@@ -25,8 +25,6 @@
 
 ### Running the Application
 
-- To run the application locally:
-
 - If not pulled the image, pull the image first.
   ```shell
   docker pull mongo
