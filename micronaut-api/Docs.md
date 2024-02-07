@@ -32,7 +32,7 @@
 - Run the docker image.
 - 
   ```shell
-  docker-compose up
+  docker compose up
   ```
   
 - Run the application:
