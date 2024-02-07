@@ -5,7 +5,7 @@
 ### Prerequisites
 
 - JDK 11 or later
-- Gradle 6.0 or later (optional if using Gradle wrapper)
+- Gradle 7.4 or later
 - Docker (for containerization)
 
 ### Setup Instructions
@@ -26,20 +26,26 @@
 ### Running the Application
 
 - To run the application locally:
+
+- If not pulled the image, pull the image first.
+  ```shell
+  docker pull mongo
+  ```
+- Run the docker image.
+- 
+  ```shell
+  docker-compose up
+  ```
+  
+- Run the application:
   ```shell
   ./gradlew run
-  ```
-
-- To run the application using Docker:
-  ```shell
-  docker pull mariadb
-  docker-compose up --build
   ```
 
 ## Project Structure
 
   Every API has MVM Architecture. The project structure is as follows:
-  ## Controllers -> Services -> Repositories
+  ### Controllers -> Services -> Repositories
   - `Controllers`: Handles incoming requests and outgoing responses.
   - `Services`: Contains business logic.
   - `Repositories`: Handles data access.
@@ -50,16 +56,6 @@
 - `.gitignore`: Specifies intentionally untracked files to ignore.
 - `docker-compose.yaml`: Docker compose file for containerization.
 
-
-## Building and Deployment
-
-- Run the project:
-  ```shell
-  ./gradlew run
-  ```
-
-- Deploy:
-  Detailed steps for deploying the application, including any platform-specific instructions.
 
 ## Additional Resources
 
