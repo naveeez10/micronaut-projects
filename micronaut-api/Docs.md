@@ -27,7 +27,7 @@
 
 - If not pulled the image, pull the image first.
   ```shell
-  docker pull mongo
+  docker pull mariadb
   ```
 - Run the docker image.
 - 
